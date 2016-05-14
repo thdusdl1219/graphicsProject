@@ -5,21 +5,22 @@ public class CameraSmooth : MonoBehaviour
 {
 
     public GameObject _target;
-    public Vector3 _iniPos;
-    public Vector3 _nowPos;
+    private Vector3 _iniPos;
+    private Vector3 _charPos;
 
     // Use this for initialization
     void Start()
     {
 
         _iniPos = transform.position;
+        _charPos = _target.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        transform.position = _iniPos + _target.transform.position;
+        transform.position = _iniPos + _target.transform.position - _charPos;
 
     }
 }
